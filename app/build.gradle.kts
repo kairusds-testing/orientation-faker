@@ -25,7 +25,7 @@ android {
     namespace = "net.mm2d.android.orientationfaker"
     defaultConfig {
         applicationId = "net.mm2d.android.orientationfaker"
-        minSdk = 21
+        minSdk = 26
         targetSdk = 33
         versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
         versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
@@ -148,11 +148,10 @@ tasks.create<JacocoReport>("jacocoTestReport") {
 }
 
 fun isStable(version: String): Boolean {
-    // val versionUpperCase = version.toUpperCase()
-    // val hasStableKeyword = listOf("RELEASE", "FINAL", "GA").any { versionUpperCase.contains(it) }
-    // val regex = "^[0-9,.v-]+(-r)?$".toRegex()
-    // return hasStableKeyword || regex.matches(version)
-    return true
+    val versionUpperCase = version.toUpperCase()
+    val hasStableKeyword = listOf("RELEASE", "FINAL", "GA").any { versionUpperCase.contains(it) }
+    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+    return hasStableKeyword || regex.matches(version)
 }
 
 tasks.named<DependencyUpdatesTask>("dependencyUpdates") {
