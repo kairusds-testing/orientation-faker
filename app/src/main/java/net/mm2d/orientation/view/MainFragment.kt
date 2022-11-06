@@ -33,7 +33,7 @@ import net.mm2d.orientation.settings.NightModes
 import net.mm2d.orientation.settings.PreferenceRepository
 import net.mm2d.orientation.util.Launcher
 import net.mm2d.orientation.util.SystemSettings
-import net.mm2d.orientation.util.Updater
+// import net.mm2d.orientation.util.Updater
 import net.mm2d.orientation.util.autoCleared
 import net.mm2d.orientation.view.dialog.NightModeDialog
 import net.mm2d.orientation.view.dialog.NotificationPermissionDialog
@@ -74,7 +74,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         if (!SystemSettings.canDrawOverlays(requireContext())) {
             viewModel.updateEnabled(false)
         } else {
-            Updater.startUpdateIfAvailable(requireActivity())
+            // Updater.startUpdateIfAvailable(requireActivity())
         }
         NightModeDialog.registerListener(this, REQUEST_KEY_NIGHT_MODE) {
             viewModel.updateNightMode(it)
@@ -115,7 +115,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onResume() {
         super.onResume()
-        Updater.onResume(requireActivity())
+        // Updater.onResume(requireActivity())
         startCheckSystemSettings()
         ReviewRequest.requestReviewIfNeed(this, preferenceRepository)
         val granted = NotificationPermission.isGranted(requireContext())
