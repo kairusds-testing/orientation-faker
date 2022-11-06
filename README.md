@@ -1,9 +1,7 @@
 # OrientationFaker
 
 [![license](https://img.shields.io/github/license/ohmae/orientation-faker.svg)](./LICENSE)
-[![GitHub release](https://img.shields.io/github/release/ohmae/orientation-faker.svg)](https://github.com/ohmae/orientation-faker/releases)
-[![GitHub issues](https://img.shields.io/github/issues/ohmae/orientation-faker.svg)](https://github.com/ohmae/orientation-faker/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/ohmae/orientation-faker.svg)](https://github.com/ohmae/orientation-faker/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub release](https://img.shields.io/github/release/kairusds-testing/orientation-faker.svg)](https://github.com/kairusds-testing/orientation-faker/releases)
 
 This is an application that fixes the screen in a specific orientation or rotates according to the sensor, regardless of the attributes of the displayed application.
 You can change the screen orientation from the notification area. It is also possible to associate a specific application with the screen orientation and switch settings when the application starts.
@@ -21,7 +19,9 @@ Please use at your own risk.
 
 ## Install
 
-[Google Play](https://play.google.com/store/apps/details?id=net.mm2d.android.orientationfaker)
+[GitHub Releases](https://github.com/kairusds-testing/orientation-faker/releases)
+
+[Google Play (original version)](https://play.google.com/store/apps/details?id=net.mm2d.android.orientationfaker)
 
 ## Feature
 
