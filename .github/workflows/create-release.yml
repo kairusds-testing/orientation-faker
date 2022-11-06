@@ -1,0 +1,61 @@
+name: Create Release
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
+      with:
+        distribution: "temurin"
+        java-version: 11
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Gradle build
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: build
+
+    - name: Sign apk
+      uses: ilharp/sign-android-release@v1
+      id: sign_app
+      with:
+        signingKey: "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"
+        keyAlias: "androiddebugkey"
+        keyStorePassword: "android"
+        keyPassword: "android"
+        buildToolsVersion: 33.0.0
+
+    - name: Get apk checksums
+      run: |
+        echo "APK_PATH=${{ steps.sign_app.outputs.signedFile }}" >> $GITHUB_ENV
+        echo "APK_MD5=$(md5sum ${{ env.APK_PATH }} | awk '{ print $1 }')" >> $GITHUB_ENV
+        echo "APK_SHA1=$(sha1sum ${{ env.APK_PATH }} | awk '{ print $1 }')" >> $GITHUB_ENV
+        echo "APK_SHA256=$(sha256sum ${{ env.APK_PATH }} | awk '{ print $1 }')" >> $GITHUB_ENV
+
+    - name: Get apk version
+      id: apk-version
+      uses: kairusds/apk-version-action@v1.0.0
+      with:
+        path: ${{ env.APK_PATH }}
+
+    - name: Upload binaries to a release
+      uses: softprops/action-gh-release@v1
+      with:
+        body: |
+          ## File Checksums
+          MD5: `${{ env.APK_MD5 }}`
+          SHA1: `${{ env.APK_SHA1 }}`
+          SHA256: `${{ env.APK_SHA256 }}`
+        files: ${{ env.APK_PATH }}
+        tag_name: ${{ steps.apk-version.outputs.name }}
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Orientation_Control
+        path: ${{ env.APK_PATH }}
